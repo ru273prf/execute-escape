@@ -48,7 +48,8 @@ button { font: inherit; color: inherit; }
   color: var(--muted);
   transition: background .18s ease, color .18s ease, transform .12s ease;
 }
-.icon-button { font-size: 21px; }
+.icon-button { display: grid; place-items: center; }
+.icon-button svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 .icon-button:hover, .back-button:hover { background: #edf1f6; color: var(--text); }
 .icon-button:active, .back-button:active { transform: scale(.94); }
 
@@ -82,9 +83,10 @@ button { font: inherit; color: inherit; }
 
 .action-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 14px;
-  max-width: 430px;
+  width: 100%;
+  max-width: 480px;
   margin: 0 auto;
 }
 .hold-button, .decrement-button {
@@ -99,8 +101,8 @@ button { font: inherit; color: inherit; }
   touch-action: none;
 }
 .hold-button {
-  min-height: 72px;
-  border-radius: var(--radius);
+  min-height: 78px;
+  border-radius: 16px;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: .1em;
@@ -185,7 +187,7 @@ button { font: inherit; color: inherit; }
 
 @media (max-width: 360px) {
   .app-shell { padding-left: 16px; padding-right: 16px; }
-  .action-row { gap: 10px; }
-  .hold-button { min-height: 66px; }
+  .action-row { gap: 12px; }
+  .hold-button { min-height: 74px; }
   .chart-row { grid-template-columns: 68px 1fr 44px; gap: 8px; }
 }

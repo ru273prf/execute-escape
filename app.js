@@ -1,7 +1,7 @@
 const DB_NAME = 'execute-escape-db';
 const DB_VERSION = 1;
 const STORE_NAME = 'daily';
-const HOLD_MS = 2000;
+const HOLD_MS = 1000;
 const DELETE_HOLD_MS = 5000;
 
 let db;
