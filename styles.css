@@ -71,7 +71,8 @@ button { font: inherit; color: inherit; }
   flex: 0 0 auto;
   margin-bottom: 34px;
   gap: 22px;
-  max-width: 600px;
+  width: 100%;
+  max-width: 390px;
 }
 #homeScreen .action-row {
   flex: 1 1 auto;
