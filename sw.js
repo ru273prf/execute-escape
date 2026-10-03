@@ -1,4 +1,4 @@
-const CACHE = 'execute-escape-v1-4';
+const CACHE = 'execute-escape-v1-5';
 const ASSETS = ['./', './index.html', './styles.css', './app.js', './manifest.json', './icon.svg'];
 
 self.addEventListener('install', (event) => {
