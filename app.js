@@ -101,14 +101,14 @@ function startHold(button, duration, onComplete) {
   const progress = button.querySelector('.hold-progress');
   if (progress) {
     progress.style.transition = 'transform .04s linear';
-    progress.style.transform = 'scaleY(0)';
+    progress.style.transform = button.closest('.settings-screen') ? 'scaleX(0)' : 'scaleY(0)';
   }
 
   const update = () => {
     if (!holdButton) return;
     const elapsed = performance.now() - holdStart;
     const ratio = Math.min(elapsed / duration, 1);
-    if (progress) progress.style.transform = `scaleY(${ratio})`;
+    if (progress) progress.style.transform = button.closest('.settings-screen') ? `scaleX(${ratio})` : `scaleY(${ratio})`;
     if (ratio >= 1) {
       holdCompleted = true;
       clearHold();
@@ -125,7 +125,7 @@ function clearHold() {
   holdTimer = null;
   if (holdButton) {
     const progress = holdButton.querySelector('.hold-progress');
-    if (progress) progress.style.transform = 'scaleY(0)';
+    if (progress) progress.style.transform = holdButton.closest('.settings-screen') ? 'scaleX(0)' : 'scaleY(0)';
   }
   holdButton = null;
   holdStart = 0;

@@ -74,6 +74,7 @@ button { font: inherit; color: inherit; }
 #homeScreen .action-row {
   flex: 1 1 auto;
   min-height: 0;
+  margin-bottom: 22px;
   align-items: stretch;
 }
 #homeScreen .hold-button {
@@ -177,6 +178,12 @@ button { font: inherit; color: inherit; }
 .danger-section { padding-top: 4px; }
 .danger-button { width: 100%; min-height: 48px; border: 1px solid #ead0d3; background: transparent; color: #b14c59; border-radius: 12px; font-size: 11px; font-weight: 700; letter-spacing: .08em; cursor: pointer; box-shadow: none; }
 .danger-button .hold-progress { background: #ffedf0; }
+
+/* Settings uses a horizontal hold-progress indicator. */
+.settings-screen .hold-progress {
+  transform-origin: left center;
+  transform: scaleX(0);
+}
 
 .bottom-nav {
   position: fixed;
