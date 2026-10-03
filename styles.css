@@ -59,7 +59,7 @@ button { font: inherit; color: inherit; }
 .icon-button:hover, .back-button:hover { background: #edf1f6; color: var(--text); }
 .icon-button:active, .back-button:active { transform: scale(.94); }
 
-.screen { display: none; height: calc(100dvh - var(--nav-height) - 88px); padding-top: 7vh; overflow: hidden; }
+.screen { display: none; height: calc(100dvh - var(--nav-height) - 88px); padding-top: 5vh; overflow: hidden; }
 .screen.active { display: block; animation: fadeIn .18s ease; }
 #homeScreen.active {
   display: flex;
