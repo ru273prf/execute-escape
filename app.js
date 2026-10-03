@@ -244,3 +244,5 @@ function setup() {
     showToast('STORAGE ERROR');
   }
 })();
+
+document.addEventListener('contextmenu', (event) => event.preventDefault());

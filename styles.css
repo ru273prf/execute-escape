@@ -14,13 +14,18 @@
 }
 
 * { box-sizing: border-box; }
-html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; }
+html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; overscroll-behavior: none; }
 body {
   font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background: var(--bg);
   color: var(--text);
   -webkit-font-smoothing: antialiased;
   overscroll-behavior: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: none;
 }
 button { font: inherit; color: inherit; }
 
@@ -56,6 +61,25 @@ button { font: inherit; color: inherit; }
 
 .screen { display: none; height: calc(100dvh - var(--nav-height) - 88px); padding-top: 7vh; overflow: hidden; }
 .screen.active { display: block; animation: fadeIn .18s ease; }
+#homeScreen.active {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding-top: 5vh;
+}
+#homeScreen .today-counts {
+  flex: 0 0 auto;
+  margin-bottom: 34px;
+}
+#homeScreen .action-row {
+  flex: 1 1 auto;
+  min-height: 0;
+  align-items: stretch;
+}
+#homeScreen .hold-button {
+  min-height: 0;
+  height: 100%;
+}
 @keyframes fadeIn { from { opacity: .2; transform: translateY(3px); } to { opacity: 1; transform: none; } }
 
 .today-counts, .count-summary {
@@ -147,7 +171,7 @@ button { font: inherit; color: inherit; }
 .section-title { color: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: .13em; margin-bottom: 14px; }
 .edit-row { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; border-bottom: 1px solid var(--line); }
 .edit-label { font-size: 12px; font-weight: 700; letter-spacing: .1em; }
-.decrement-button { min-width: 78px; width: 78px; height: 42px; border-radius: 12px; box-shadow: none; font-size: 12px; font-weight: 700; letter-spacing: .04em; }
+.decrement-button { min-height: 42px; min-width: 78px; width: 78px; height: 42px; border-radius: 12px; box-shadow: none; font-size: 12px; font-weight: 700; letter-spacing: .04em; }
 .decrement-button.execute { border-color: #cfe1fb; color: var(--execute); }
 .decrement-button.escape { border-color: #f6d0d5; color: var(--escape); }
 .danger-section { padding-top: 4px; }
