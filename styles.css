@@ -70,7 +70,8 @@ button { font: inherit; color: inherit; }
 #homeScreen .today-counts {
   flex: 0 0 auto;
   margin-bottom: 34px;
-  gap: 48px;
+  gap: 22px;
+  max-width: 600px;
 }
 #homeScreen .action-row {
   flex: 1 1 auto;
