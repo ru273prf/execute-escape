@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f7f9fc" />
+  <meta name="description" content="A minimal EXECUTE / ESCAPE counter." />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icon.svg" type="image/svg+xml" />
+  <title>EXECUTE / ESCAPE</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div></div>
+      <button class="icon-button" id="settingsButton" aria-label="Settings" title="Settings">⚙</button>
+    </header>
+
+    <section class="screen active" id="homeScreen" aria-label="Home">
+      <div class="today-counts">
+        <div class="metric execute-metric">
+          <div class="metric-number" id="todayExecute">0</div>
+          <div class="metric-label">EXECUTE</div>
+        </div>
+        <div class="metric escape-metric">
+          <div class="metric-number" id="todayEscape">0</div>
+          <div class="metric-label">ESCAPE</div>
+        </div>
+      </div>
+
+      <div class="action-row">
+        <button class="hold-button execute" id="executeButton" data-action="execute">
+          <span class="hold-progress"></span>
+          <span class="hold-label">EXECUTE</span>
+        </button>
+        <button class="hold-button escape" id="escapeButton" data-action="escape">
+          <span class="hold-progress"></span>
+          <span class="hold-label">ESCAPE</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="screen" id="countScreen" aria-label="Count">
+      <div class="count-summary">
+        <div class="metric execute-metric">
+          <div class="metric-number" id="totalExecute">0</div>
+          <div class="metric-label">EXECUTE</div>
+        </div>
+        <div class="metric escape-metric">
+          <div class="metric-number" id="totalEscape">0</div>
+          <div class="metric-label">ESCAPE</div>
+        </div>
+      </div>
+
+      <div class="ratio-chart" aria-label="Execute and escape percentages">
+        <div class="chart-row execute-chart-row">
+          <div class="chart-label">EXECUTE</div>
+          <div class="bar-track"><div class="bar-fill execute-fill" id="executeBar"></div></div>
+          <div class="chart-percent execute-percent" id="executePercent">0%</div>
+        </div>
+        <div class="chart-row escape-chart-row">
+          <div class="chart-label">ESCAPE</div>
+          <div class="bar-track"><div class="bar-fill escape-fill" id="escapeBar"></div></div>
+          <div class="chart-percent escape-percent" id="escapePercent">0%</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen settings-screen" id="settingsScreen" aria-label="Settings">
+      <div class="settings-header">
+        <button class="back-button" id="backButton" aria-label="Back">←</button>
+        <span>SETTINGS</span>
+      </div>
+
+      <div class="settings-section">
+        <div class="section-title">EDIT TODAY'S COUNT</div>
+        <div class="edit-row">
+          <div class="edit-label execute-text">EXECUTE</div>
+          <button class="decrement-button execute hold-button" id="decrementExecute" data-action="decrementExecute"><span class="hold-progress"></span><span class="hold-label">−1</span></button>
+        </div>
+        <div class="edit-row">
+          <div class="edit-label escape-text">ESCAPE</div>
+          <button class="decrement-button escape hold-button" id="decrementEscape" data-action="decrementEscape"><span class="hold-progress"></span><span class="hold-label">−1</span></button>
+        </div>
+      </div>
+
+      <div class="settings-section danger-section">
+        <div class="section-title">DATA</div>
+        <button class="danger-button hold-button" id="deleteDataButton"><span class="hold-progress"></span><span class="hold-label">DELETE ALL DATA</span></button>
+      </div>
+    </section>
+
+    <nav class="bottom-nav" aria-label="Navigation">
+      <button class="nav-button active" id="homeNav">HOME</button>
+      <button class="nav-button" id="countNav">COUNT</button>
+    </nav>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="confirm-overlay" id="confirmOverlay" hidden>
+    <div class="confirm-card">
+      <div class="confirm-title">DELETE ALL DATA?</div>
+      <div class="confirm-text">This cannot be undone.</div>
+      <div class="confirm-actions">
+        <button id="cancelDelete">CANCEL</button>
+        <button class="danger-confirm" id="confirmDelete">DELETE</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
